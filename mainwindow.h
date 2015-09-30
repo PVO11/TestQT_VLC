@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "vlc_on_qt.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,6 +16,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    Player p;
+
 private slots:
     void on_pushButton_clicked();
 
@@ -25,6 +28,7 @@ private slots:
     void on_pushButton_4_clicked();
 
     void on_pushButton_5_clicked();
+
 
 private:
     Ui::MainWindow *ui;
