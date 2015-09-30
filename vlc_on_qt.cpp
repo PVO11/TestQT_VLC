@@ -95,7 +95,7 @@ void Player::playFile(QString file)
 
     /* Create a new LibVLC media descriptor */
     //"file:///C:/path/to/some/external/file"
-    //_m = libvlc_media_new_path(_vlcinstance, "C:/Programs/VideoFile/Fire1.avi");
+    //_m = libvlc_media_new_path(_vlcinstance, "D:\Programs\VideoFile\ЭЛУ.avi");
     _m = libvlc_media_new_path(_vlcinstance, file.toLatin1());
     //_m = libvlc_media_new (_vlcinstance, file.toAscii(), &_vlcexcep); // [20101215 JG] Used for versions prior to VLC 1.2.0.
     //raise(&_vlcexcep); // [20101215 JG] Used for versions prior to VLC 1.2.0.

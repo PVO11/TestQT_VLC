@@ -1,12 +1,11 @@
 
 #include <QFileDialog>
-#include <QMouseEvent>
-
 #include <vlc/vlc.h>
 #include "mainwindow.h"
 #include "windows.h"
 #include "ui_mainwindow.h"
 
+#include "vlc_on_qt.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -21,15 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     if(vlcInst)
         libvlc_release(vlcInst);*/
-
-
-
-
-    p.resize(640,480);
-    //p.playFile("rtp://@:2626"); // Replace with what you want to play
-    p.playFile("Fire1.avi"); // Replace with what you want to play
-    //p.playFile("D://Programs//VideoFile//ЭЛУ.avi/"); // Replace with what you want to play
-    p.show();
 
     //Player p;
     //p.resize(640,480);
@@ -46,27 +36,15 @@ MainWindow::~MainWindow()
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
-    /*if( event->type() == QEvent::MouseMove )
-    {
-        QMouseEvent *m = static_cast< QMouseEvent * >( event );
-        QWidget *w = QApplication::widgetAt( m->globalPos() );
-        if( w )
-            ui->listWidget->addItem( obj->objectName() );
-            //ui->labelHint->setText( w->whatsThis() );
-    }*/
-
     if ((event->type() == QEvent::MouseButtonPress))
     {
-        //ui->listWidget->addItem( obj->objectName() );
-
-        QMouseEvent *m = static_cast< QMouseEvent * >( event );
-
-        QString s = "";
-        s += "x " + s.number(m->x(), 10) + " y " + s.number(m->y(), 10);
-        ui->listWidget->addItem( s );
+        ui->listWidget->addItem( obj->objectName() );
+        //QMessageBox mes;
+        //mes.setText(obj->objectName());
+        //mes.exec();
     }
 
-    return QMainWindow::eventFilter( obj, event );
+    return false;
 }
 
 void MainWindow::on_pushButton_clicked()
